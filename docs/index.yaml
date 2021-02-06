@@ -9,6 +9,6 @@ entries:
     name: ticket-store
     type: application
     urls:
-    - https://github.com/ammbra/helm-vs-operators/tree/gh-pages/ticket-store-0.1.0.tgz
+    - https://github.com/ammbra/helm-vs-operators/tree/gh-pages/docs/ticket-store-0.1.0.tgz
     version: 0.1.0
 generated: "2021-02-06T21:43:05.105802+02:00"

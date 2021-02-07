@@ -1,0 +1,41 @@
+apiVersion: charts.my.domain/v1alpha1
+kind: TicketStore
+metadata:
+  name: ticketstore-sample
+spec:
+  # Default values copied from <project_dir>/helm-charts/ticket-store/values.yaml
+  affinity: {}
+  api:
+    event: http://simple-event:9090/api/event
+    landmark: http://leader-landmark:8080/api/landmark
+  fullnameOverride: ""
+  image:
+    containerPort: 3000
+    pullPolicy: IfNotPresent
+    repository: ammbra/ticket-store
+    tag: 2.0.21
+  imagePullSecrets: []
+  ingress:
+    annotations: {}
+    enabled: false
+    hosts:
+    - host: chart-example.local
+      paths: []
+    tls: []
+  nameOverride: ""
+  nodeSelector: {}
+  podSecurityContext: {}
+  replicaCount: 1
+  resources: {}
+  securityContext: {}
+  service:
+    ports:
+      nodePort: 31131
+      port: 3000
+    type: NodePort
+  serviceAccount:
+    create: true
+    name: null
+  tolerations: []
+  
+  

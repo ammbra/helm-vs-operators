@@ -1,0 +1,54 @@
+{
+  "name": "ticket-store-app",
+  "version": "1.0.0",
+  "description": "An elegant single page app for ordering tickets on top of reactjs & redux.",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.21.1",
+    "chai": "^4.1.2",
+    "cors": "^2.8.5",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "history": "^4.7.2",
+    "react": "^16.3.0",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.13.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "^3.4.1",
+    "react-star-rating-component": "^1.4.1",
+    "react-test-renderer": "^16.2.0",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.4.1",
+    "env-cmd": "^10.1.0",
+    "jquery": "^3.5.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build:prod": "env-cmd -f ./.prod.env npm run-script build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ammbra/helm-vs-operators"
+  },
+  "author": "saransh",
+  "license": "ISC",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+= Simple chart setup for Ticket Store microservice
+
+:home: https://github.com/ammbra/helm-vs-operators
+
+* <<preparation, Preparation>>
+* <<helm-chart-setup-for-the-microservice, Helm chart setup for the microservice >>
+* <<_publish_helm_charts_to_a_repo_on_github, Publish Helm charts to a repo on GitHub>>
+All the below commands will be executed in a terminal window.
+
+=== Preparation
+
+The ticket store microservice will interact with landmark and events microservices.
+If they are not available, no event or landmark ticket can be bought.
+
+Validate the installation via:
+
+[source, bash, subs="normal,attributes"]
+----
+$ helm list
+----
+
+=== Helm chart setup for the microservice
+
+Install your charts in dev project
+[source, bash, subs="normal,attributes"]
+----
+$ helm install frontend ./chart/ticket-store
+$ helm status frontend
+$ kubectl get ns
+$ kubectl get svc
+$ kubectl port-forward svc/frontend-ticket-store 3000
+----
+
+
+
+Go in a browser window and copy-paste http://localhost:3000
+
+*Congratulations*, you found tickets!
+
+=== Publish Helm charts to a repo on GitHub
+
+Please read the instructions here for creating GitHub pages: https://helm.sh/docs/topics/chart_repository/
+----
+$ helm package ticket-store
+$ mv ticket-store -0.1.0.tgz docs
+$ helm repo index docs --url https://ammbra.github.io/helm-vs-operators
+----
+
+|===
+|{home}/README.adoc[Navigate to global instructions]
+|===
+
+'''

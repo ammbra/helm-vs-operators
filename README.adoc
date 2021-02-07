@@ -1,6 +1,6 @@
 = Helm vs Operators
 
-:home: https://github.com/ammbra
+:home: https://github.com/ammbra/helm-vs-operators
 
 * <<helm-setup,Helm Setup>>
 * <<compatibility,Compatibility>>
@@ -38,7 +38,7 @@ $ helm version
 
 Please follow the navigation links.
 |===
- {home}/landmark[Navigate to landmark microservice]
+ {home}/tree/main/landmark[Navigate to landmark microservice]
 |===
 
 '''

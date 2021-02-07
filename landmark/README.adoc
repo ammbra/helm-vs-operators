@@ -1,0 +1,95 @@
+= Leader chart setup for Landmark microservice
+
+:home: https://github.com/ammbra/leader
+
+* <<_preparation, Preparation>>
+** <<working-locally-with-the-docker-image-for-landmark-microservice, Working locally with the Docker image for Landmark Microservice>>
+* <<leader-helm-chart-setup,  Leader Helm chart setup>>
+* <<compatibility,Compatibility>>
+
+All the below commands will be executed in a terminal window.
+
+=== Preparation
+The landmark microservice will persist its data into a database, in this case a PostgreSQL database instance.
+
+Check if the Helm repo https://charts.bitnami.com/bitnami[https://charts.bitnami.com/bitnami] is added to your existing list:
+[source, bash, subs="normal,attributes"]
+----
+$ helm repo list
+----
+If the repo is not there, please run the following set of commands:
+[source, bash, subs="normal,attributes"]
+----
+$ helm repo add bitnami https://charts.bitnami.com/bitnami
+----
+
+==== Working locally with the Docker image for Landmark Microservice
+
+Try to build the project locally using <<Run-Landmark-Microservice.adoc#, Run-Landmark-Microservice.adoc>>.
+
+Make sure that you are under root folder of the clone repository (_landmark_) and run:
+[source, bash, subs="normal,attributes"]
+----
+$ mvn package
+----
+Then, build the image with:
+[source, bash, subs="normal,attributes"]
+----
+$ docker run -d -p 5000:5000 --restart=always --name registry registry:2
+$ docker build -f src/main/docker/Dockerfile.jvm -t quarkus/landmark:1.0 .
+$ docker tag quarkus/landmark:1.0 localhost:5000/quarkus/landmark:1.0
+$ docker push localhost:5000/quarkus/landmark:2.0.0
+----
+
+=== Leader Helm chart setup
+Observe the JSON schema used to validate the charts:
+
+[source, bash, subs="normal,attributes"]
+----
+leader
+├── Chart.lock
+├── Chart.yaml
+├── charts
+│   ├── landmark
+│   │   ├── Chart.yaml
+│   │   ├── templates
+│   │   │   ├── NOTES.txt
+│   │   │   ├── _helpers.tpl
+│   │   │   ├── deployment.yaml
+│   │   │   ├── ingress.yaml
+│   │   │   ├── service.yaml
+│   │   │   ├── serviceaccount.yaml
+│   │   │   └── tests
+│   │   │       └── test-connection.yaml
+│   │   ├── values.schema.json
+│   │   └── values.yaml
+│   └── postgresql-8.6.4.tgz
+├── values.schema.json
+└── values.yaml
+----
+
+Install your charts in your current project:
+
+[source, bash, subs="normal,attributes"]
+----
+$ helm install leader ./leader
+$ helm status leader
+$ kubectl get ns
+$ kubectl get svc
+----
+
+Go in a browser window and copy-paste http://localhost:9090/api/landmark
+
+*Congratulations*, you got all the landmarks!
+
+
+|===
+|{home}[Navigate to global instructions]
+|===
+
+'''
+=== Compatibility
+
+The Java code in the repositories is compatible with Java11.
+
+'''

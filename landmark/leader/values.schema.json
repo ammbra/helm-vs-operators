@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "postgresql": {
+        "postgresqlDatabase": "landmark",
+        "postgresqlUsername": "postgres",
+        "postgresqlPassword": "postgres",
+        "secretName": "leader-postgresql",
+        "server": "leader-postgresql",
+        "persistence": {
+          "enabled": false
+        }
+      }
+    }
+  ],
+  "required": [
+    "postgresql"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "postgresql": {
+      "$id": "#/properties/postgresql",
+      "type": "object",
+      "title": "The postgresql schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "postgresqlDatabase": "landmark",
+          "postgresqlUsername": "postgres",
+          "postgresqlPassword": "postgres",
+          "secretName": "leader-postgresql",
+          "server": "leader-postgresql",
+          "persistence": {
+            "enabled": false
+          }
+        }
+      ],
+      "required": [
+        "postgresqlDatabase",
+        "postgresqlUsername",
+        "postgresqlPassword",
+        "secretName",
+        "server",
+        "persistence"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "postgresqlDatabase": {
+          "$id": "#/properties/postgresql/properties/postgresqlDatabase",
+          "type": "string",
+          "title": "The postgresqlDatabase schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "landmark"
+          ]
+        },
+        "postgresqlUsername": {
+          "$id": "#/properties/postgresql/properties/postgresqlUsername",
+          "type": "string",
+          "title": "The postgresqlUsername schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "postgres"
+          ]
+        },
+        "postgresqlPassword": {
+          "$id": "#/properties/postgresql/properties/postgresqlPassword",
+          "type": "string",
+          "title": "The postgresqlPassword schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "postgres"
+          ]
+        },
+        "secretName": {
+          "$id": "#/properties/postgresql/properties/secretName",
+          "type": "string",
+          "title": "The secretName schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "leader-postgresql"
+          ]
+        },
+        "server": {
+          "$id": "#/properties/postgresql/properties/server",
+          "type": "string",
+          "title": "The server schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "leader-postgresql"
+          ]
+        },
+        "persistence": {
+          "$id": "#/properties/postgresql/properties/persistence",
+          "type": "object",
+          "title": "The persistence schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "enabled": false
+            }
+          ],
+          "required": [
+            "enabled"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "enabled": {
+              "$id": "#/properties/postgresql/properties/persistence/properties/enabled",
+              "type": "boolean",
+              "title": "The enabled schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": false,
+              "examples": [
+                false
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

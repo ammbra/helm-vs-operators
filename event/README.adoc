@@ -1,0 +1,69 @@
+= Simple chart setup for Event microservice
+
+:home: https://github.com/ammbra/helm-vs-operators
+
+* <<preparation, Preparation>>
+* <<helm-chart-setup-for-the-microservice, Helm chart setup for the microservice >>
+* <<compatibility,Compatibility>>
+
+All the below commands will be executed in a terminal window.
+
+=== Preparation
+
+The event microservice will persist its data into a database, in this case a PostgreSQL database instance.
+
+In order to install the database, please use a PostgreSQL operator or helm chart.
+
+For helm chart installation of PostgreSQL:
+----
+$ helm repo list
+----
+If the repo is not there, please run the following set of commands:
+[source, bash, subs="normal,attributes"]
+----
+$ helm repo add bitnami https://charts.bitnami.com/bitnami
+----
+
+Setup the database instance with Helm, using the following command:
+
+[source, bash, subs="normal,attributes"]
+----
+$ helm install event \
+--set postgresqlUsername=event-default,postgresqlPassword=postgres,postgresqlDatabase=event,persistence.enabled=false \
+stable/postgresql
+$ helm status event
+----
+Validate the installation via:
+
+[source, bash, subs="normal,attributes"]
+----
+$ helm list
+$ helm get all event
+----
+
+=== Helm chart setup for the microservice
+
+Install your charts in dev project
+[source, bash, subs="normal,attributes"]
+----
+$ helm install simple ./chart/event
+$ helm status simple
+$ kubectl get ns
+$ kubectl get svc
+----
+
+
+Go in a browser window and copy-paste http://localhost:8080/api/event
+
+*Congratulations*, you found all events!
+
+|===
+|{home}/README.adoc[Navigate to global instructions]
+|===
+
+'''
+=== Compatibility
+
+The Java code in the repositories is compatible with Java11.
+
+'''

@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    rollme: {{ randAlphaNum 5 | quote }}
+  name: {{ include "landmark.fullname" . }}
+  labels:
+    {{- include "landmark.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "landmark.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "landmark.selectorLabels" . | nindent 8 }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "landmark.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.image.containerPort }}
+              protocol: TCP
+          env:
+            - name: POSTGRES_SERVER
+              value: {{ .Values.postgresql.server | default (printf "%s-postgresql" ( .Release.Name )) | quote }}
+            - name: POSTGRES_USERNAME
+              value: {{ default "postgres" .Values.postgresql.postgresqlUsername | quote }}
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.postgresql.secretName | default (printf "%s-postgresql" ( .Release.Name )) | quote }}
+                  key: {{ .Values.postgresql.secretKey }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.readinessProbe.path}}
+              port: {{ .Values.service.ports.port }}
+            initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds}}
+            timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds}}
+            periodSeconds: {{ .Values.readinessProbe.periodSeconds}}
+            failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.livenessProbe.path}}
+              port: {{ .Values.service.ports.port }}
+            initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds}}
+            timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds}}
+            periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+            failureThreshold: {{ .Values.livenessProbe.failureThreshold}}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}

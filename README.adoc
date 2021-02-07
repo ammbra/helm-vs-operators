@@ -1,0 +1,52 @@
+= Helm vs Operators
+
+:home: https://github.com/ammbra
+
+* <<helm-setup,Helm Setup>>
+* <<compatibility,Compatibility>>
+* <<license,License>>
+
+'''
+
+=== Helm setup
+
+Helm is a packager for Kubernetes that bundles related manifest files and packages them into a single logical deployment unit: *Chart*.
+Simplified, for many engineers Helm makes it *easy* to start using Kubernetes with *real* applications.
+Helm Charts are useful for addressing the installation complexities and simple upgrades of particularly stateless applications like web apps.
+Say goodbye to the many, long, hard-coded yaml files and embrace an easier way to manage your deployed applications!
+
+In v3, Helm is used entirely through the helm CLI.
+The Helm CLI is a utility usually run interactively outside of the cluster.
+
+Users find a chart for the desired software, parameterize its resources through Helm to deploy Kubernetes artifacts and this eventually brings up said software.
+
+Before diving into installing Helm, make sure you have installed Go, version 1.12 or higher.
+The bellow links describe how to install Helm on different platforms using the CLI:
+
+** https://docs.openshift.com/container-platform/4.4/cli_reference/helm_cli/getting-started-with-helm-on-openshift-container-platform.html#on-windows-10[On Windows 10]
+** https://docs.openshift.com/container-platform/4.4/cli_reference/helm_cli/getting-started-with-helm-on-openshift-container-platform.html#on-macos[On MacOS]
+
+Always validate your helm installation by running:
+
+[source, bash, subs="normal,attributes"]
+----
+$ helm version
+----
+
+
+*Congratulations*! You are ready to code!
+
+Please follow the navigation links.
+|===
+ {home}/landmark[Navigate to landmark microservice]
+|===
+
+'''
+=== Compatibility
+
+The Java code in the repositories is compatible with Java11.
+
+'''
+=== License
+
+This code is dedicated to the public domain to the maximum extent permitted by applicable law, pursuant to http://creativecommons.org/publicdomain/zero/1.0/[CC0].

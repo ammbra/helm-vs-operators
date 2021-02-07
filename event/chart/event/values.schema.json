@@ -1,0 +1,743 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "examples": [
+    {
+      "replicaCount": 1,
+      "image": {
+        "repository": "localhost:5000/quarkus/event",
+        "tag": "1.0",
+        "pullPolicy": "IfNotPresent",
+        "containerPort": 8080
+      },
+      "imagePullSecrets": [],
+      "nameOverride": "",
+      "fullnameOverride": "",
+      "postgresql": {
+        "server": "event-db-postgresql",
+        "postgresqlUsername": "event-default",
+        "secretName": "event-db-postgresql",
+        "secretKey": "postgresql-password"
+      },
+      "readinessProbe": {
+        "path": "/health/ready",
+        "initialDelaySeconds": 5,
+        "timeoutSeconds": 2,
+        "periodSeconds": 3,
+        "failureThreshold": 3
+      },
+      "livenessProbe": {
+        "path": "/health/live",
+        "initialDelaySeconds": 30,
+        "timeoutSeconds": 2,
+        "periodSeconds": 8,
+        "failureThreshold": 3
+      },
+      "serviceAccount": {
+        "create": true,
+        "name": null
+      },
+      "podSecurityContext": {},
+      "securityContext": {},
+      "service": {
+        "ports": {
+          "port": 8080,
+          "nodePort": 31125
+        },
+        "type": "NodePort"
+      },
+      "ingress": {
+        "enabled": false,
+        "annotations": {},
+        "hosts": [
+          {
+            "host": "chart-example.local",
+            "paths": []
+          }
+        ],
+        "tls": []
+      },
+      "resources": {},
+      "nodeSelector": {},
+      "tolerations": [],
+      "affinity": {}
+    }
+  ],
+  "required": [
+    "replicaCount",
+    "image",
+    "imagePullSecrets",
+    "nameOverride",
+    "fullnameOverride",
+    "postgresql",
+    "readinessProbe",
+    "livenessProbe",
+    "serviceAccount",
+    "podSecurityContext",
+    "securityContext",
+    "service",
+    "ingress",
+    "resources",
+    "nodeSelector",
+    "tolerations",
+    "affinity"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "replicaCount": {
+      "$id": "#/properties/replicaCount",
+      "type": "integer",
+      "title": "The replicaCount schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": 0,
+      "examples": [
+        1
+      ]
+    },
+    "image": {
+      "$id": "#/properties/image",
+      "type": "object",
+      "title": "The image schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "repository": "localhost:5000/quarkus/event",
+          "tag": "1.0",
+          "pullPolicy": "IfNotPresent",
+          "containerPort": 8080
+        }
+      ],
+      "required": [
+        "repository",
+        "tag",
+        "pullPolicy",
+        "containerPort"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "repository": {
+          "$id": "#/properties/image/properties/repository",
+          "type": "string",
+          "title": "The repository schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "localhost:5000/quarkus/event"
+          ]
+        },
+        "tag": {
+          "$id": "#/properties/image/properties/tag",
+          "type": "string",
+          "title": "The tag schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "1.0"
+          ]
+        },
+        "pullPolicy": {
+          "$id": "#/properties/image/properties/pullPolicy",
+          "type": "string",
+          "title": "The pullPolicy schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "IfNotPresent"
+          ]
+        },
+        "containerPort": {
+          "$id": "#/properties/image/properties/containerPort",
+          "type": "integer",
+          "title": "The containerPort schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            8080
+          ]
+        }
+      }
+    },
+    "imagePullSecrets": {
+      "$id": "#/properties/imagePullSecrets",
+      "type": "array",
+      "title": "The imagePullSecrets schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        []
+      ],
+      "additionalItems": true,
+      "items": {
+        "anyOf": [],
+        "$id": "#/properties/imagePullSecrets/items"
+      }
+    },
+    "nameOverride": {
+      "$id": "#/properties/nameOverride",
+      "type": "string",
+      "title": "The nameOverride schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        ""
+      ]
+    },
+    "fullnameOverride": {
+      "$id": "#/properties/fullnameOverride",
+      "type": "string",
+      "title": "The fullnameOverride schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": "",
+      "examples": [
+        ""
+      ]
+    },
+    "postgresql": {
+      "$id": "#/properties/postgresql",
+      "type": "object",
+      "title": "The postgresql schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "server": "event-db-postgresql",
+          "postgresqlUsername": "event-default",
+          "secretName": "event-db-postgresql",
+          "secretKey": "postgresql-password"
+        }
+      ],
+      "required": [
+        "server",
+        "postgresqlUsername",
+        "secretName",
+        "secretKey"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "server": {
+          "$id": "#/properties/postgresql/properties/server",
+          "type": "string",
+          "title": "The server schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "event-db-postgresql"
+          ]
+        },
+        "postgresqlUsername": {
+          "$id": "#/properties/postgresql/properties/postgresqlUsername",
+          "type": "string",
+          "title": "The postgresqlUsername schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "event-default"
+          ]
+        },
+        "secretName": {
+          "$id": "#/properties/postgresql/properties/secretName",
+          "type": "string",
+          "title": "The secretName schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "event-db-postgresql"
+          ]
+        },
+        "secretKey": {
+          "$id": "#/properties/postgresql/properties/secretKey",
+          "type": "string",
+          "title": "The secretKey schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "postgresql-password"
+          ]
+        }
+      }
+    },
+    "readinessProbe": {
+      "$id": "#/properties/readinessProbe",
+      "type": "object",
+      "title": "The readinessProbe schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "path": "/health/ready",
+          "initialDelaySeconds": 5,
+          "timeoutSeconds": 2,
+          "periodSeconds": 3,
+          "failureThreshold": 3
+        }
+      ],
+      "required": [
+        "path",
+        "initialDelaySeconds",
+        "timeoutSeconds",
+        "periodSeconds",
+        "failureThreshold"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "path": {
+          "$id": "#/properties/readinessProbe/properties/path",
+          "type": "string",
+          "title": "The path schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "/health/ready"
+          ]
+        },
+        "initialDelaySeconds": {
+          "$id": "#/properties/readinessProbe/properties/initialDelaySeconds",
+          "type": "integer",
+          "title": "The initialDelaySeconds schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            5
+          ]
+        },
+        "timeoutSeconds": {
+          "$id": "#/properties/readinessProbe/properties/timeoutSeconds",
+          "type": "integer",
+          "title": "The timeoutSeconds schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            2
+          ]
+        },
+        "periodSeconds": {
+          "$id": "#/properties/readinessProbe/properties/periodSeconds",
+          "type": "integer",
+          "title": "The periodSeconds schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            3
+          ]
+        },
+        "failureThreshold": {
+          "$id": "#/properties/readinessProbe/properties/failureThreshold",
+          "type": "integer",
+          "title": "The failureThreshold schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            3
+          ]
+        }
+      }
+    },
+    "livenessProbe": {
+      "$id": "#/properties/livenessProbe",
+      "type": "object",
+      "title": "The livenessProbe schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "path": "/health/live",
+          "initialDelaySeconds": 30,
+          "timeoutSeconds": 2,
+          "periodSeconds": 8,
+          "failureThreshold": 3
+        }
+      ],
+      "required": [
+        "path",
+        "initialDelaySeconds",
+        "timeoutSeconds",
+        "periodSeconds",
+        "failureThreshold"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "path": {
+          "$id": "#/properties/livenessProbe/properties/path",
+          "type": "string",
+          "title": "The path schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "/health/live"
+          ]
+        },
+        "initialDelaySeconds": {
+          "$id": "#/properties/livenessProbe/properties/initialDelaySeconds",
+          "type": "integer",
+          "title": "The initialDelaySeconds schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            30
+          ]
+        },
+        "timeoutSeconds": {
+          "$id": "#/properties/livenessProbe/properties/timeoutSeconds",
+          "type": "integer",
+          "title": "The timeoutSeconds schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            2
+          ]
+        },
+        "periodSeconds": {
+          "$id": "#/properties/livenessProbe/properties/periodSeconds",
+          "type": "integer",
+          "title": "The periodSeconds schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            8
+          ]
+        },
+        "failureThreshold": {
+          "$id": "#/properties/livenessProbe/properties/failureThreshold",
+          "type": "integer",
+          "title": "The failureThreshold schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": 0,
+          "examples": [
+            3
+          ]
+        }
+      }
+    },
+    "serviceAccount": {
+      "$id": "#/properties/serviceAccount",
+      "type": "object",
+      "title": "The serviceAccount schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "create": true,
+          "name": null
+        }
+      ],
+      "required": [
+        "create",
+        "name"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "create": {
+          "$id": "#/properties/serviceAccount/properties/create",
+          "type": "boolean",
+          "title": "The create schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false,
+          "examples": [
+            true
+          ]
+        },
+        "name": {
+          "$id": "#/properties/serviceAccount/properties/name",
+          "type": "null",
+          "title": "The name schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": null,
+          "examples": [
+            null
+          ]
+        }
+      }
+    },
+    "podSecurityContext": {
+      "$id": "#/properties/podSecurityContext",
+      "type": "object",
+      "title": "The podSecurityContext schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {}
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {}
+    },
+    "securityContext": {
+      "$id": "#/properties/securityContext",
+      "type": "object",
+      "title": "The securityContext schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {}
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {}
+    },
+    "service": {
+      "$id": "#/properties/service",
+      "type": "object",
+      "title": "The service schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "ports": {
+            "port": 8080,
+            "nodePort": 31125
+          },
+          "type": "NodePort"
+        }
+      ],
+      "required": [
+        "ports",
+        "type"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "ports": {
+          "$id": "#/properties/service/properties/ports",
+          "type": "object",
+          "title": "The ports schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {
+              "port": 8080,
+              "nodePort": 31125
+            }
+          ],
+          "required": [
+            "port",
+            "nodePort"
+          ],
+          "additionalProperties": true,
+          "properties": {
+            "port": {
+              "$id": "#/properties/service/properties/ports/properties/port",
+              "type": "integer",
+              "title": "The port schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                8080
+              ]
+            },
+            "nodePort": {
+              "$id": "#/properties/service/properties/ports/properties/nodePort",
+              "type": "integer",
+              "title": "The nodePort schema",
+              "description": "An explanation about the purpose of this instance.",
+              "default": 0,
+              "examples": [
+                31125
+              ]
+            }
+          }
+        },
+        "type": {
+          "$id": "#/properties/service/properties/type",
+          "type": "string",
+          "title": "The type schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": "",
+          "examples": [
+            "NodePort"
+          ]
+        }
+      }
+    },
+    "ingress": {
+      "$id": "#/properties/ingress",
+      "type": "object",
+      "title": "The ingress schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {
+          "enabled": false,
+          "annotations": {},
+          "hosts": [
+            {
+              "host": "chart-example.local",
+              "paths": []
+            }
+          ],
+          "tls": []
+        }
+      ],
+      "required": [
+        "enabled",
+        "annotations",
+        "hosts",
+        "tls"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "enabled": {
+          "$id": "#/properties/ingress/properties/enabled",
+          "type": "boolean",
+          "title": "The enabled schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": false,
+          "examples": [
+            false
+          ]
+        },
+        "annotations": {
+          "$id": "#/properties/ingress/properties/annotations",
+          "type": "object",
+          "title": "The annotations schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "examples": [
+            {}
+          ],
+          "required": [],
+          "additionalProperties": true,
+          "properties": {}
+        },
+        "hosts": {
+          "$id": "#/properties/ingress/properties/hosts",
+          "type": "array",
+          "title": "The hosts schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            [
+              {
+                "host": "chart-example.local",
+                "paths": []
+              }
+            ]
+          ],
+          "additionalItems": true,
+          "items": {
+            "anyOf": [
+              {
+                "$id": "#/properties/ingress/properties/hosts/items/anyOf/0",
+                "type": "object",
+                "title": "The first anyOf schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": {},
+                "examples": [
+                  {
+                    "host": "chart-example.local",
+                    "paths": []
+                  }
+                ],
+                "required": [
+                  "host",
+                  "paths"
+                ],
+                "additionalProperties": true,
+                "properties": {
+                  "host": {
+                    "$id": "#/properties/ingress/properties/hosts/items/anyOf/0/properties/host",
+                    "type": "string",
+                    "title": "The host schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                      "chart-example.local"
+                    ]
+                  },
+                  "paths": {
+                    "$id": "#/properties/ingress/properties/hosts/items/anyOf/0/properties/paths",
+                    "type": "array",
+                    "title": "The paths schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": [],
+                    "examples": [
+                      []
+                    ],
+                    "additionalItems": true,
+                    "items": {
+                      "anyOf": [],
+                      "$id": "#/properties/ingress/properties/hosts/items/anyOf/0/properties/paths/items"
+                    }
+                  }
+                }
+              }
+            ],
+            "$id": "#/properties/ingress/properties/hosts/items"
+          }
+        },
+        "tls": {
+          "$id": "#/properties/ingress/properties/tls",
+          "type": "array",
+          "title": "The tls schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "examples": [
+            []
+          ],
+          "additionalItems": true,
+          "items": {
+            "anyOf": [],
+            "$id": "#/properties/ingress/properties/tls/items"
+          }
+        }
+      }
+    },
+    "resources": {
+      "$id": "#/properties/resources",
+      "type": "object",
+      "title": "The resources schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {}
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {}
+    },
+    "nodeSelector": {
+      "$id": "#/properties/nodeSelector",
+      "type": "object",
+      "title": "The nodeSelector schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {}
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {}
+    },
+    "tolerations": {
+      "$id": "#/properties/tolerations",
+      "type": "array",
+      "title": "The tolerations schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": [],
+      "examples": [
+        []
+      ],
+      "additionalItems": true,
+      "items": {
+        "anyOf": [],
+        "$id": "#/properties/tolerations/items"
+      }
+    },
+    "affinity": {
+      "$id": "#/properties/affinity",
+      "type": "object",
+      "title": "The affinity schema",
+      "description": "An explanation about the purpose of this instance.",
+      "default": {},
+      "examples": [
+        {}
+      ],
+      "required": [],
+      "additionalProperties": true,
+      "properties": {}
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# Default values for chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# Enabling postgres service, by default
+postgresql:
+  # Comment line below if db is deployed inside Kube
+  postgresqlDatabase: landmark
+  postgresqlUsername: postgres
+  postgresqlPassword: postgres
+  secretName: leader-postgresql
+  server: leader-postgresql
+  persistence:
+    enabled: false

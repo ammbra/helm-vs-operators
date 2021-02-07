@@ -58,7 +58,7 @@ Go in a browser window and copy-paste http://localhost:8080/api/event
 *Congratulations*, you found all events!
 
 |===
-|{home}/README.adoc[Navigate to global instructions]
+|{home}[Navigate to global instructions]|{home}/tree/main/ticket-store[Navigate to ticket store instructions]
 |===
 
 '''

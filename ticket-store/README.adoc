@@ -5,6 +5,7 @@
 * <<preparation, Preparation>>
 * <<helm-chart-setup-for-the-microservice, Helm chart setup for the microservice >>
 * <<_publish_helm_charts_to_a_repo_on_github, Publish Helm charts to a repo on GitHub>>
+
 All the below commands will be executed in a terminal window.
 
 === Preparation
@@ -47,7 +48,7 @@ $ helm repo index docs --url https://ammbra.github.io/helm-vs-operators
 ----
 
 |===
-|{home}/README.adoc[Navigate to global instructions]
+|{home}[Navigate to global instructions]
 |===
 
 '''

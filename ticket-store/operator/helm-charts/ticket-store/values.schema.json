@@ -35,10 +35,6 @@
         "periodSeconds": 8,
         "failureThreshold": 3
       },
-      "serviceAccount": {
-        "create": true,
-        "name": null
-      },
       "podSecurityContext": {},
       "securityContext": {},
       "service": {
@@ -71,7 +67,6 @@
     "imagePullSecrets",
     "nameOverride",
     "fullnameOverride",
-    "serviceAccount",
     "podSecurityContext",
     "securityContext",
     "service",
@@ -404,46 +399,6 @@
           "default": 0,
           "examples": [
             3
-          ]
-        }
-      }
-    },
-    "serviceAccount": {
-      "$id": "#/properties/serviceAccount",
-      "type": "object",
-      "title": "The serviceAccount schema",
-      "description": "An explanation about the purpose of this instance.",
-      "default": {},
-      "examples": [
-        {
-          "create": true,
-          "name": null
-        }
-      ],
-      "required": [
-        "create",
-        "name"
-      ],
-      "additionalProperties": true,
-      "properties": {
-        "create": {
-          "$id": "#/properties/serviceAccount/properties/create",
-          "type": "boolean",
-          "title": "The create schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": false,
-          "examples": [
-            true
-          ]
-        },
-        "name": {
-          "$id": "#/properties/serviceAccount/properties/name",
-          "type": "null",
-          "title": "The name schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": null,
-          "examples": [
-            null
           ]
         }
       }

@@ -30,7 +30,7 @@ Setup the database instance with Helm, using the following command:
 ----
 $ helm install event \
 --set postgresqlUsername=event-default,postgresqlPassword=postgres,postgresqlDatabase=event,persistence.enabled=false \
-stable/postgresql
+bitnami/postgresql
 $ helm status event
 ----
 Validate the installation via:
@@ -58,7 +58,7 @@ Go in a browser window and copy-paste http://localhost:8080/api/event
 *Congratulations*, you found all events!
 
 |===
-|{home}[Navigate to global instructions]|{home}/tree/main/ticket-store[Navigate to ticket store instructions]
+|{home}/README.adoc[Navigate to global instructions]
 |===
 
 '''

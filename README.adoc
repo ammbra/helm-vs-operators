@@ -1,9 +1,8 @@
 = Helm vs Operators
 
-:home: https://github.com/ammbra/helm-vs-operators
+:home: https://github.com/ammbra
 
 * <<helm-setup,Helm Setup>>
-* <<helm-operator, Helm Operator>>
 * <<compatibility,Compatibility>>
 * <<license,License>>
 
@@ -34,18 +33,12 @@ Always validate your helm installation by running:
 $ helm version
 ----
 
-=== Helm Operator
-
-*Helm Operator* enables pairing a Helm Chart with the operational knowledge of installing, upgrading and managing the application on Kubernetes clusters.
-
-The Operator SDK, which is the tool for building operators, can create an operator based on a Helm Chart and essentially allow enriching the Helm Chart capabilities by delivering the expertise of managing and running the application together with the application.
-You can install the Operator SDK from https://github.com/operator-framework/operator-sdk/releases[here].
 
 *Congratulations*! You are ready to code!
 
 Please follow the navigation links.
 |===
- {home}/tree/main/landmark[Navigate to landmark microservice]
+ {home}/landmark[Navigate to landmark microservice]
 |===
 
 '''

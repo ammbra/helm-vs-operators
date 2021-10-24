@@ -1,6 +1,6 @@
 = Leader chart setup for Landmark microservice
 
-:home: https://github.com/ammbra/helm-vs-operators
+:home: https://github.com/ammbra/leader
 
 * <<_preparation, Preparation>>
 ** <<working-locally-with-the-docker-image-for-landmark-microservice, Working locally with the Docker image for Landmark Microservice>>
@@ -84,7 +84,7 @@ Go in a browser window and copy-paste http://localhost:9090/api/landmark
 
 
 |===
-|{home}[Navigate to global instructions]|{home}/tree/main/event[Navigate to event microservice]
+|{home}[Navigate to global instructions]
 |===
 
 '''

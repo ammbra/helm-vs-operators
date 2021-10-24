@@ -1,7 +1,7 @@
 {
   "name": "ticket-store-app",
   "version": "1.0.0",
-  "description": "An elegant single page app for ordering tickets on top of reactjs & redux.",
+  "description": "A single page app for ordering tickets on top of reactjs & redux.",
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
@@ -37,8 +37,6 @@
     "type": "git",
     "url": "https://github.com/ammbra/helm-vs-operators"
   },
-  "author": "saransh",
-  "license": "ISC",
   "browserslist": {
     "production": [
       ">0.2%",

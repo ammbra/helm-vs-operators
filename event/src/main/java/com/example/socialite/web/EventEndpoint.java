@@ -2,8 +2,6 @@ package com.example.socialite.web;
 
 import com.example.socialite.model.Event;
 import com.example.socialite.service.EventService;
-import org.eclipse.microprofile.faulttolerance.Retry;
-import org.eclipse.microprofile.faulttolerance.Timeout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,8 +22,6 @@ public class EventEndpoint {
     @Inject
     private EventService eventService;
 
-    @Timeout(value = 2, unit = ChronoUnit.SECONDS)
-    @Retry(maxRetries = 2, maxDuration = 2000)
     @GET
     @Produces(MediaType.APPLICATION_JSON)
       public List<Event> findAll() throws InterruptedException {

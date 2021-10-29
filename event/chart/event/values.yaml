@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: ammbra/event
-  tag: "2.0.0"
+  tag: "2.0.1"
   pullPolicy: IfNotPresent
   containerPort: 9090
 
@@ -17,6 +17,7 @@ fullnameOverride: ""
 
 postgresql:
   server: event-postgresql
+  db: postgres
   postgresqlUsername: event-default
   secretName: event-postgresql
   secretKey:  postgresql-password

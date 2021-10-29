@@ -3,12 +3,12 @@ entries:
   ticket-store:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2021-02-06T21:43:05.107838+02:00"
+    created: "2021-10-29T11:00:02.665892+02:00"
     description: A Helm chart for Kubernetes
-    digest: 292b03480fa204676be1aa2fdf6a24030a4cb934e5dc5005ab92d28a3f53407a
+    digest: 532de07a1c50da8b9d5532677c3686c2be7ceb1a5608fff02df64a868e751851
     name: ticket-store
     type: application
     urls:
     - https://ammbra.github.io/helm-vs-operators/ticket-store-0.1.0.tgz
     version: 0.1.0
-generated: "2021-02-06T21:43:05.105802+02:00"
+generated: "2021-10-29T11:00:02.664168+02:00"

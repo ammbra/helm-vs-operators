@@ -53,8 +53,6 @@ $ kubectl get svc
 ----
 
 
-Go in a browser window and copy-paste http://localhost:8080/api/event
-
 *Congratulations*, you found all events!
 
 |===

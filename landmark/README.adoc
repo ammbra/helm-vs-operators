@@ -78,8 +78,6 @@ $ kubectl get ns
 $ kubectl get svc
 ----
 
-Go in a browser window and copy-paste http://localhost:9090/api/landmark
-
 *Congratulations*, you got all the landmarks!
 
 

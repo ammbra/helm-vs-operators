@@ -3,7 +3,17 @@ entries:
   ticket-store:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-22T21:00:19.974487+02:00"
+    created: "2022-04-22T21:15:28.003245+02:00"
+    description: A Helm chart for Kubernetes
+    digest: 925072a7a79f468aa77efeade75339eb2c8d4779dcf246d6a219a038e72d81b8
+    name: ticket-store
+    type: application
+    urls:
+    - https://ammbra.github.io/helm-vs-operators/ticket-store-0.3.0.tgz
+    version: 0.3.0
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-04-22T21:15:28.000642+02:00"
     description: A Helm chart for Kubernetes
     digest: eb6cc17cb78227c42a00837f2a965f683235480666e52cc9829d50728e8ab8b1
     name: ticket-store
@@ -13,7 +23,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-04-22T21:00:19.973081+02:00"
+    created: "2022-04-22T21:15:27.999454+02:00"
     description: A Helm chart for Kubernetes
     digest: 532de07a1c50da8b9d5532677c3686c2be7ceb1a5608fff02df64a868e751851
     name: ticket-store
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://ammbra.github.io/helm-vs-operators/ticket-store-0.1.0.tgz
     version: 0.1.0
-generated: "2022-04-22T21:00:19.972307+02:00"
+generated: "2022-04-22T21:15:27.998714+02:00"

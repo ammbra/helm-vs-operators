@@ -38,11 +38,9 @@ spec:
               value: {{  .Values.postgresql.postgresqlUsername | default "postgres" .Values.postgresql.postgresqlUsername | quote }}
             - name: DB_NAME
               value: {{ .Values.postgresql.db | default "postgres" .Values.postgresql.db | quote }}
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.postgresql.secretName | default (printf "%s-postgresql" ( .Release.Name )) | quote }}
-                  key: {{ .Values.postgresql.secretKey }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.postgresql.secretName | default (printf "%s-postgresql" ( .Release.Name )) | quote }}
           readinessProbe:
             httpGet:
               path: {{ .Values.readinessProbe.path}}

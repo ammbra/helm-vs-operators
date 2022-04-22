@@ -7,12 +7,12 @@ replicaCount: 1
 image:
   repository: ammbra/ticket-store
   tag: "2.0.25"
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   containerPort: 3000
 
 api:
   landmark: "http://leader-landmark:8080/api/landmark"
-  event: "http://simple-event:9090/api/event"
+  event: "http://simple-event:8080/api/event"
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""

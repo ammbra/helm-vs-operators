@@ -44,7 +44,7 @@ Please read the instructions here for creating GitHub pages: https://helm.sh/doc
 ----
 $ helm package ticket-store
 $ mv ticket-store -0.1.0.tgz docs
-$ helm repo index docs --url https://ammbra.github.io/helm-vs-operators
+$ helm repo index docs --url https://<your_github_user>.github.io/helm-vs-operators
 ----
 
 |===

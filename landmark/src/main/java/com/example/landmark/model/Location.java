@@ -1,6 +1,7 @@
 package com.example.landmark.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter@Setter
 @Entity
+@RegisterForReflection
 public class Location extends PanacheEntityBase {
 
     @Id

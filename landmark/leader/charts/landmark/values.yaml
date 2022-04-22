@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ammbra/landmark
+  repository: quay.io/anasandbox/landmark
   tag: "2.0.0"
   pullPolicy: IfNotPresent
   containerPort: 8080
@@ -89,3 +89,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+autoscaling:
+  enabled: false

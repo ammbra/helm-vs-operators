@@ -20,8 +20,7 @@
       "postgresql": {
         "server": "event-db-postgresql",
         "postgresqlUsername": "event-default",
-        "secretName": "event-db-postgresql",
-        "secretKey": "postgresql-password"
+        "secretName": "event-db-postgresql"
       },
       "readinessProbe": {
         "path": "/health/ready",
@@ -53,12 +52,6 @@
       "ingress": {
         "enabled": false,
         "annotations": {},
-        "hosts": [
-          {
-            "host": "chart-example.local",
-            "paths": []
-          }
-        ],
         "tls": []
       },
       "resources": {},
@@ -207,15 +200,13 @@
         {
           "server": "event-db-postgresql",
           "postgresqlUsername": "event-default",
-          "secretName": "event-db-postgresql",
-          "secretKey": "postgresql-password"
+          "secretName": "event-db-postgresql"
         }
       ],
       "required": [
         "server",
         "postgresqlUsername",
-        "secretName",
-        "secretKey"
+        "secretName"
       ],
       "additionalProperties": true,
       "properties": {
@@ -247,16 +238,6 @@
           "default": "",
           "examples": [
             "event-db-postgresql"
-          ]
-        },
-        "secretKey": {
-          "$id": "#/properties/postgresql/properties/secretKey",
-          "type": "string",
-          "title": "The secretKey schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": "",
-          "examples": [
-            "postgresql-password"
           ]
         }
       }
@@ -562,19 +543,12 @@
         {
           "enabled": false,
           "annotations": {},
-          "hosts": [
-            {
-              "host": "chart-example.local",
-              "paths": []
-            }
-          ],
           "tls": []
         }
       ],
       "required": [
         "enabled",
         "annotations",
-        "hosts",
         "tls"
       ],
       "additionalProperties": true,
@@ -601,72 +575,6 @@
           "required": [],
           "additionalProperties": true,
           "properties": {}
-        },
-        "hosts": {
-          "$id": "#/properties/ingress/properties/hosts",
-          "type": "array",
-          "title": "The hosts schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": [],
-          "examples": [
-            [
-              {
-                "host": "chart-example.local",
-                "paths": []
-              }
-            ]
-          ],
-          "additionalItems": true,
-          "items": {
-            "anyOf": [
-              {
-                "$id": "#/properties/ingress/properties/hosts/items/anyOf/0",
-                "type": "object",
-                "title": "The first anyOf schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": {},
-                "examples": [
-                  {
-                    "host": "chart-example.local",
-                    "paths": []
-                  }
-                ],
-                "required": [
-                  "host",
-                  "paths"
-                ],
-                "additionalProperties": true,
-                "properties": {
-                  "host": {
-                    "$id": "#/properties/ingress/properties/hosts/items/anyOf/0/properties/host",
-                    "type": "string",
-                    "title": "The host schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": "",
-                    "examples": [
-                      "chart-example.local"
-                    ]
-                  },
-                  "paths": {
-                    "$id": "#/properties/ingress/properties/hosts/items/anyOf/0/properties/paths",
-                    "type": "array",
-                    "title": "The paths schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": [],
-                    "examples": [
-                      []
-                    ],
-                    "additionalItems": true,
-                    "items": {
-                      "anyOf": [],
-                      "$id": "#/properties/ingress/properties/hosts/items/anyOf/0/properties/paths/items"
-                    }
-                  }
-                }
-              }
-            ],
-            "$id": "#/properties/ingress/properties/hosts/items"
-          }
         },
         "tls": {
           "$id": "#/properties/ingress/properties/tls",

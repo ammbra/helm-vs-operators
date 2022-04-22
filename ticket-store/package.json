@@ -27,11 +27,12 @@
     "jquery": "^3.5.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:local": "env-cmd -f ./.env.development react-scripts start",
+    "start": "env-cmd -f ./.env react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "build:prod": "env-cmd -f ./.prod.env npm run-script build"
+    "build:prod": "env-cmd -f ./.env npm run-script build"
   },
   "repository": {
     "type": "git",

@@ -28,8 +28,8 @@ Setup the database instance with Helm, using the following command:
 
 [source, bash, subs="normal,attributes"]
 ----
-$ helm install event \
---set postgresqlUsername=event-default,postgresqlPassword=postgres,postgresqlDatabase=event,persistence.enabled=false \
+$ helm install event --set persistence.enabled=false,\
+securityContext.enabled=false,containerSecurityContext.enabled=false \
 bitnami/postgresql
 $ helm status event
 ----

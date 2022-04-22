@@ -10,5 +10,9 @@ postgresql:
   postgresqlPassword: postgres
   secretName: leader-postgresql
   server: leader-postgresql
+  securityContext:
+    enabled: false
+  containerSecurityContext:
+    enabled: false
   persistence:
     enabled: false

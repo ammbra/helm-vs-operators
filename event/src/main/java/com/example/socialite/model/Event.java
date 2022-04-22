@@ -1,6 +1,7 @@
 package com.example.socialite.model;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+import io.quarkus.runtime.annotations.RegisterForReflection;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Getter@Setter
 @Entity
+@RegisterForReflection
 public class Event extends PanacheEntityBase {
 
     @Id

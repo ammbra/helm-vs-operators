@@ -1,6 +1,7 @@
 package com.example.landmark.web;
 
 import com.example.landmark.model.Location;
+import com.example.landmark.service.LocationRepository;
 import com.example.landmark.service.LocationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,12 +18,11 @@ public class LocationEndpoint {
     private static final Logger LOGGER = LoggerFactory.getLogger(LocationEndpoint.class);
 
     @Inject
-    private LocationService locationService;
+    private LocationRepository repository;
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-      public List<Location> findAll() throws InterruptedException {
-        return this.locationService.getAll();
+    public List<Location> findAll() throws InterruptedException {
+        return repository.listAll();
     }
 
 }

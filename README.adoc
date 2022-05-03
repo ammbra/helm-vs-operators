@@ -38,7 +38,7 @@ $ helm version
 
 Please follow the navigation links.
 |===
- {home}/tree/main/landmark[Navigate to landmark microservice]
+ {home}/tree/main/event[Navigate to event microservice]|{home}/tree/main/landmark[Navigate to landmark microservice] | {home}/tree/main/ticket-store[Navigate to ticket-store microservice]
 |===
 
 '''
